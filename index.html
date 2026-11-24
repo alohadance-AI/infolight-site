@@ -2,22 +2,104 @@
 <html lang="ru-RU">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ИНФОЛАЙТ — ремонт LED-экранов, вывесок и мультимедийного оборудования | Бесплатная диагностика</title>
-    <!-- GitHub Pages edition: формы заявок отправляются напрямую в Telegram через statichost-прокси. -->
-    <!-- Замените ВАШ_ТОКЕН_ОТ_BOTFATHER:ВАШ_CHAT_ID на реальные значения (формат токен:chat_id, закодированные через btoa) -->
-    <script>
-      window.__leadProxy = async function (data) {
-        const fields = { name: data.name || "", phone: data.phone || "", email: data.email || "", company: data.company || "", message: data.message || "", service: data.service || "", budget: data.budget || "", source: data.source || "github-pages" };
-        const text = Object.entries(fields).filter(([, v]) => v).map(([k, v]) => k + ": " + v).join("\n");
-        const creds = (() => { try { return localStorage.getItem("tg_creds") || null } catch (e) { return null } })() || atob("ВАШ_ТОКЕН_ОТ_BOTFATHER:ВАШ_CHAT_ID");
-        const r = await fetch("https://api.statichost.eu/telegram/" + atob(creds), { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify({ text: "Новая заявка с сайта\n" + text }) }).then((r) => r.json()).catch(() => null);
-        if (!r || !r.ok) throw new Error("proxy fail");
-      };
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Ремонт LED-экранов, вывесок, музейного оборудования и коммутаторов Cisco в лаборатории ИНФОЛАЙТ (ИП Смирнов Е.В., Кимры). Компонентный ремонт на 40–80% дешевле замены, бесплатная диагностика, гарантия до 24 месяцев, выезд по всей России 24/7." />
+    <meta name="keywords" content="ремонт LED-экранов, ремонт светодиодных экранов, ремонт вывесок, ремонт медиафасадов, ремонт проекторов, ремонт коммутаторов Cisco, сервис LED-экранов, музейные инсталляции сервис, компонентный ремонт, ИНФОЛАЙТ" />
+    <meta name="author" content="ИП Смирнов Егор Викторович" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="ИНФОЛАЙТ — сервисный центр" />
+    <meta property="og:title" content="ИНФОЛАЙТ — ремонт LED-экранов, вывесок и мультимедийного оборудования" />
+    <meta property="og:description" content="Компонентный ремонт LED-экранов, вывесок, музейных инсталляций и коммутаторов Cisco. На 40–80% дешевле замены, бесплатная диагностика, гарантия до 24 месяцев, выезд по всей России." />
+    <meta property="og:image" content="/infolight-site/media/gen/p1-cover.jpg" />
+    <meta property="og:url" content="https://infolight.ru/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ИНФОЛАЙТ — ремонт LED-экранов, вывесок и мультимедийного оборудования" />
+    <meta name="twitter:description" content="Компонентный ремонт на 40–80% дешевле замены. Бесплатная диагностика, гарантия до 24 месяцев, выезд по России 24/7." />
+    <meta name="twitter:image" content="/infolight-site/media/gen/p1-cover.jpg" />
+    <!-- FAQ rich snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Сколько стоит диагностика?", "acceptedAnswer": { "@type": "Answer", "text": "Ничего. Диагностика на объекте в Москве и области и в лаборатории — бесплатна. По регионам доставка до нашего сервиса — силами заказчика любой транспортной компанией, диагностика после приёмки всё равно бесплатна." } },
+        { "@type": "Question", "name": "А если после диагностики цена ремонта меня не устроит?", "acceptedAnswer": { "@type": "Answer", "text": "Платить не придётся. Стоимость и сроки фиксируем в смете до начала работ — вы либо соглашаетесь, либо забираете оборудование без всяких обязательств." } },
+        { "@type": "Question", "name": "Вы работаете с регионами?", "acceptedAnswer": { "@type": "Answer", "text": "Да, по всей России. Организуем приёмку через транспортные компании, ремонт ведём в нашей лаборатории, возвращаем с закрывающими документами. Для крупных объектов выезжаем сами." } },
+        { "@type": "Question", "name": "Какая гарантия на ремонт?", "acceptedAnswer": { "@type": "Answer", "text": "До 24 месяцев на работы и установленные запчасти — срок зависит от типа оборудования и фиксируется в акте. Гарантийные случаи устраняем в приоритетном порядке." } },
+        { "@type": "Question", "name": "Работаете ли вы по договору с юридическими лицами?", "acceptedAnswer": { "@type": "Answer", "text": "Да. Работаем по 44-ФЗ и 223-ФЗ, предоставляем полный пакет закрывающих документов, заключаем сервисные контракты с SLA и ежемесячной отчётностью." } },
+        { "@type": "Question", "name": "Что делать, если оборудования много и оно критично?", "acceptedAnswer": { "@type": "Answer", "text": "Предоставим подменный фонд на время ремонта и предложим сервисный контракт: склад ЗИП под ваш парк, регламентные выезды и время реакции от 4 часов." } }
+      ]
+    }
     </script>
-    <script type="module" crossorigin src="/assets/index-CEHiBtF-.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Clwhhvog.css" />
-  </head>
+    <!-- Structured data: organization + local business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://infolight.ru/#org",
+      "name": "ИНФОЛАЙТ — сервисный центр",
+      "legalName": "ИП Смирнов Егор Викторович",
+      "description": "Сервисный центр полного цикла: компонентный ремонт LED-экранов, медиафасадов, вывесок, музейных инсталляций, проекторов и сетевого оборудования Cisco. Диагностика бесплатно, выезд по всей России 24/7.",
+      "url": "https://infolight.ru/",
+      "telephone": "+78005550155",
+      "email": "service@infolight.ru",
+      "foundingDate": "2012",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU",
+        "addressRegion": "Тверская область",
+        "addressLocality": "Кимры",
+        "streetAddress": "ул. Желябова, д. 1, кв. 67",
+        "postalCode": "171507"
+      },
+      "identifier": [
+        { "@type": "PropertyValue", "name": "ИНН", "value": "691011352955" },
+        { "@type": "PropertyValue", "name": "ОГРНИП", "value": "323695200012558" }
+      ],
+      "areaServed": "Россия",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "₽₽",
+      "image": "https://infolight.ru/media/gen/p1-cover.jpg"
+    }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3Cpath d='M8 2 14 8 8 14 2 8Z' fill='%232fb3a4'/%3E%3C/svg%3E" />
+    <link rel="preload" as="font" type="font/woff2" href="/infolight-site/fonts/cyr/unbounded-cyrillic-300800.woff2" crossorigin />
+    <title>ИНФОЛАЙТ — ремонт LED-экранов, вывесок и мультимедийного оборудования | Бесплатная диагностика</title>
+    <!-- Яндекс.Метрика: раскомментируйте и подставьте ID своего счётчика.
+         В настройках счётчика включите «Обезличивать IP» и отключите
+         сбор для рекламы — это требование 152-ФЗ. Cookie-баннер уже на сайте.
+    <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+      ym(00000000, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:false });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/00000000" style="position:absolute; left:-9999px" alt="" /></div></noscript>
+    -->
+    <script type="module" crossorigin src="/infolight-site/assets/index-CnSEg12H.js"></script>
+    <link rel="stylesheet" crossorigin href="/infolight-site/assets/index-Ftemd2W4.css">
+  <script>
+/* GitHub Pages edition: заявки идут напрямую в Telegram через statichost-прокси.
+   Креды зашиты в base64 — скрывает их от обычного просмотра исходника.
+   Свои креды можно подставить без пересборки: localStorage.tg_creds = btoa("ТОКЕН:CHAT_ID") */
+window.__leadProxy=async function(e){
+  const r={name:e.name||"",phone:e.phone||"",email:e.email||"",company:e.company||"",message:e.message||"",service:e.service||"",budget:e.budget||"",source:e.source||"github-pages"};
+  const t=Object.entries(r).filter(([,v])=>v).map(([k,v])=>k+": "+v).join("\n");
+  const _creds=(function(){try{return localStorage.getItem("tg_creds")}catch(e){return null}})()||"0JLQkNCoX9Ci0J7QmtCV0J1f0J7Qol9CT1RGQVRIRVI60JLQkNCoX0NIQVRfSUQ=";
+  const n=await fetch("https://api.statichost.eu/telegram/"+atob(_creds),{method:"POST",headers:{Accept:"application/json","Content-Type":"application/json"},body:JSON.stringify({text:"Новая заявка с сайта\n"+t})}).then(function(e){return e.json()}).catch(function(){return null});
+  if(!n||!n.ok)throw new Error("proxy fail");
+};
+</script>
+<script>
+(function(){var p=sessionStorage.getItem('spa-path');if(p){sessionStorage.removeItem('spa-path');history.replaceState(null,'',p);}})();
+</script>
+</head>
   <body>
     <div id="root"></div>
   </body>
