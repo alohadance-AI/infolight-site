@@ -1,1 +1,24 @@
-PLACEHOLDER_INDEX
+<!doctype html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ИНФОЛАЙТ — ремонт LED-экранов, вывесок и мультимедийного оборудования | Бесплатная диагностика</title>
+    <!-- GitHub Pages edition: формы заявок отправляются напрямую в Telegram через statichost-прокси. -->
+    <!-- Замените ВАШ_ТОКЕН_ОТ_BOTFATHER:ВАШ_CHAT_ID на реальные значения (формат токен:chat_id, закодированные через btoa) -->
+    <script>
+      window.__leadProxy = async function (data) {
+        const fields = { name: data.name || "", phone: data.phone || "", email: data.email || "", company: data.company || "", message: data.message || "", service: data.service || "", budget: data.budget || "", source: data.source || "github-pages" };
+        const text = Object.entries(fields).filter(([, v]) => v).map(([k, v]) => k + ": " + v).join("\n");
+        const creds = (() => { try { return localStorage.getItem("tg_creds") || null } catch (e) { return null } })() || atob("ВАШ_ТОКЕН_ОТ_BOTFATHER:ВАШ_CHAT_ID");
+        const r = await fetch("https://api.statichost.eu/telegram/" + atob(creds), { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify({ text: "Новая заявка с сайта\n" + text }) }).then((r) => r.json()).catch(() => null);
+        if (!r || !r.ok) throw new Error("proxy fail");
+      };
+    </script>
+    <script type="module" crossorigin src="/assets/index-CEHiBtF-.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Clwhhvog.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
